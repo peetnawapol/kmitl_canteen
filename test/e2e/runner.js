@@ -39,12 +39,12 @@ devConfigPromise
       stdio: 'inherit'
     })
 
-    runner.on('exit', function(code) {
+    runner.on('exit', function (code) {
       server.close()
       process.exit(code)
     })
 
-    runner.on('error', function(err) {
+    runner.on('error', function (err) {
       server.close()
       throw err
     })

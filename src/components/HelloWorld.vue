@@ -23,7 +23,7 @@
           Twitter
         </a>
       </li>
-      <br />
+      <br>
       <li>
         <a href="http://vuejs-templates.github.io/webpack/" target="_blank">
           Docs for This Template
@@ -59,7 +59,7 @@
 <script>
 export default {
   name: 'HelloWorld',
-  data() {
+  data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }

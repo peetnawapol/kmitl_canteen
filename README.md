@@ -1,6 +1,6 @@
-# kmitlcanteen
+# kmitl_canteen
 
-> A KMITL Canteen operation system
+> For anyone uses
 
 ## Build Setup
 
