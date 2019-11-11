@@ -24,6 +24,9 @@ export default {
   */
   css: [
     '@/assets/styles.scss',
+    'bootstrap-css-only/css/bootstrap.min.css',
+    'mdbvue/lib/css/mdb.min.css',
+    '@fortawesome/fontawesome-free/css/all.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
