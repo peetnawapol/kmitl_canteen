@@ -1,4 +1,32 @@
-/*** ***/
+/*** Global CSS ***/
+
 body, html {
-    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
+
+#background {
+    background: rgba(37, 37, 37, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: -999;
+}
+
+#background::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-image: linear-gradient(to top, rgba(37, 37, 37, 1), rgba(100, 100, 100, 0) 80%, transparent 50%), url("../static/wall1.jpg");
+    background-size: cover; /** we need to compensate for the 50% height **/
+    content: '';
+    z-index: -999;
+  }
+  
