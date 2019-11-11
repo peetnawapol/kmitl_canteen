@@ -1,12 +1,15 @@
 <template>
-  <div class="container">
+  <div>
+    <Feature />
   </div>
 </template>
 
 <script>
+import Feature from '@/components/homepage/Feature'
 
 export default {
-  // components: {
-  // }
+  components: {
+    Feature
+  }
 }
 </script>
