@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="danger">
+    <b-navbar toggleable="lg" type="dark" variant="danger" fixed="top">
       <div class="container">
         <b-navbar-toggle target="nav-collapse" />
 
@@ -18,7 +18,7 @@
           </b-navbar-nav>
         </b-collapse>
 
-        <b-navbar-brand href="#" class="mx-auto d-xs-none d-m-block">
+        <b-navbar-brand href="#" class="mx-auto d-md-block d-sm-none">
           KMITL CANTEEN
         </b-navbar-brand>
 
@@ -31,7 +31,7 @@
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
               <template v-slot:button-content>
-                <em>User</em>
+                User
               </template>
               <b-dropdown-item href="#">
                 Profile
