@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="container pt-5 ">
-      <div class="row items-box">
+    <b-container fluid="true" class="pt-5 mb-5 pb-0 pl-4 pr-4">
+      <b-row class="items-box" align-v="end">
         <!-- <div class="col-lg-12 p-5 pt-5 d-flex justify-content-center align-items-center">
           <form class="form-inline md-form form-sm active-pink-2 mt-5" style="width:100% !important;">
             <input
@@ -14,19 +14,35 @@
             <i class="fas fa-search" aria-hidden="true" />
           </form>
         </div> -->
-        <div class="col-lg-12 p-3 d-flex justify-content-center align-items-center">
-          <h1 class="h1-post pt-5 ">
-            Lorem Ipsum De Clarte Mortora Flozet Amet
-          </h1>
-        </div>
-      </div>
-    </div>
+        <b-col lg="12" align-self="end" class="d-flex justify-content-center mt-5">
+          <i class="fas fa-chevron-down text-white"></i>
+        </b-col>
+      </b-row>
+    </b-container>
+      <b-container fluid="true" class="pl-4 pr-4 pb-1 pt-5">
+        <h2 class="text-white">Recommended Meal</h2>
+      </b-container>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      m: '123'
+    }
+  }
+}
+</script>
+
 <style scoped>
+i.fas.fa-chevron-down {
+  font-size: 3rem;
+}
+
 .items-box {
   z-index: 1;
-  height: 785px;
+  height: 89vh;
 }
 
 .items-box h1.h1-post {
