@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="danger" fixed="top">
-      <div class="container">
+    <b-navbar toggleable="lg" type="dark" class="cust-nav" fixed="top">
+      <div class="container-fluid">
         <b-navbar-toggle target="nav-collapse" />
 
         <b-collapse id="nav-collapse" is-nav>
@@ -66,6 +66,11 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.cust-nav {
+  background-color: #da291c !important;
+  opacity: .93;
 }
 
 .button--green {

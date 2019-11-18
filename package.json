@@ -22,6 +22,7 @@
     "mdbvue": "^6.0.0",
     "nuxt": "^2.0.0",
     "velocity-animate": "^1.5.2",
+    "vue-flickity": "^1.2.1",
     "vue-owl-carousel": "^2.0.3",
     "vueperslides": "^1.21.0"
   },
