@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="section">
     <b-container fluid="true" class="pt-5 mb-5 pb-0 pl-4 pr-4">
       <b-row class="items-box" align-v="end">
         <!-- <div class="col-lg-12 p-5 pt-5 d-flex justify-content-center align-items-center">
@@ -15,23 +15,16 @@
           </form>
         </div> -->
         <b-col lg="12" align-self="end" class="d-flex justify-content-center mt-5">
-          <i class="fas fa-chevron-down text-white"></i>
+          <i class="fas fa-chevron-down text-white" />
         </b-col>
       </b-row>
     </b-container>
-      <b-container fluid="true" class="pl-4 pr-4 pb-1 pt-5">
-        <h2 class="text-white">Recommended Meal</h2>
-      </b-container>
   </div>
 </template>
 
 <script>
+
 export default {
-  data () {
-    return {
-      m: '123'
-    }
-  }
 }
 </script>
 
@@ -53,4 +46,22 @@ i.fas.fa-chevron-down {
   word-break: break-all;
   word-wrap: break-word;
 }
+
+.color-wh {
+  background-color: rgb(76,76,76);
+  height: 145px;
+  margin: .5%;
+}
+
+ul#item-calousel {
+  list-style: none;
+  width:100%;
+  height: 180px;
+}
+
+ul#item-calousel li {
+  display: inline-block;
+  width: 123px;
+}
+
 </style>
