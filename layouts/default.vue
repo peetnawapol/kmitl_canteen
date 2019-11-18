@@ -69,8 +69,8 @@ html {
 }
 
 .cust-nav {
-  background-color: #da291c !important;
-  opacity: .93;
+  background-color: #bf0402 !important;
+  opacity: .97;
 }
 
 .button--green {

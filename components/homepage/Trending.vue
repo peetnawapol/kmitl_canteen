@@ -1,24 +1,25 @@
 <template>
-  <b-container fluid="true" class="pl-5 pr-0 pt-5">
-    <h2 class="text-white cust-head">
+  <b-container fluid="true" class="pl-0 pr-0 pt-5">
+    <h2 class="text-white cust-head ml-5">
       Recommended Meal
     </h2>
     <no-ssr placeholder="loading...">
       <vueper-slides
         :visible-slides="5"
         slide-multiple
-        :slide-ratio="1/9"
-        :breakpoints="{ 800: { visibleSlides: 2 } }"
+        :slide-ratio="1/10"
+        :breakpoints="{ 600: { visibleSlides: 4 } }"
         :bullets="false"
-        :slideContentOutside="true"
-        :slideImageInside="true"
-        :arrowsOutside="false"
-        :disableArrowsOnEdges="true"
+        :slide-content-outside="true"
+        :slide-image-inside="true"
+        :arrows-outside="false"
+        :disable-arrows-on-edges="true"
         :parallax="true"
-        :touchable="false"
+        :touchable="true"
+        :draggingDistance="70"
         class="mb-5 mt-3 no-shadow"
       >
-        <b-row class="pr-2 pl-0 d-flex h-100">
+        <b-row class="ml-4 pl-2 d-flex h-100">
           <b-col>
             <vueper-slide
               v-for="(slide, i) in slide1"
@@ -31,25 +32,26 @@
         </b-row>
       </vueper-slides>
     </no-ssr>
-    <h2 class="text-white cust-head">
-      Spicy Food
+    <h2 class="text-white cust-head ml-5">
+      Main Course
     </h2>
     <no-ssr placeholder="loading...">
       <vueper-slides
         :visible-slides="5"
         slide-multiple
-        :slide-ratio="1/9"
-        :breakpoints="{ 800: { visibleSlides: 2 } }"
+        :slide-ratio="1/10"
+        :breakpoints="{ 600: { visibleSlides: 4 } }"
         :bullets="false"
-        :slideContentOutside="true"
-        :slideImageInside="true"
-        :arrowsOutside="false"
-        :disableArrowsOnEdges="true"
+        :slide-content-outside="true"
+        :slide-image-inside="true"
+        :arrows-outside="false"
+        :disable-arrows-on-edges="true"
         :parallax="true"
-        :touchable="false"
-        class="mb-4 mt-3 no-shadow"
+        :touchable="true"
+        :draggingDistance="70"
+        class="mb-5 mt-3 no-shadow"
       >
-        <b-row class="pr-2 pl-0 d-flex h-100">
+        <b-row class="ml-4 pl-2 d-flex h-100">
           <b-col>
             <vueper-slide
               v-for="(slide, i) in slide2"
@@ -78,11 +80,11 @@ export default {
     return {
       slide1: [
         {
-          image: 'https://placeimg.com/300/250/any?28',
+          image: 'https://placeimg.com/300/250/any?88',
           link: '#1'
         },
         {
-          image: 'https://placeimg.com/300/250/any?22',
+          image: 'https://placeimg.com/300/250/any?32',
           link: '#3'
         },
         {
@@ -94,11 +96,11 @@ export default {
           link: '#5'
         },
         {
-          image: 'https://placeimg.com/300/250/any?26',
+          image: 'https://placeimg.com/300/250/any?69',
           link: '#6'
         },
         {
-          image: 'https://placeimg.com/300/250/any?27',
+          image: 'https://placeimg.com/300/250/any?47',
           link: '#7'
         },
         {
@@ -164,6 +166,14 @@ export default {
   line-height: 1.25vw;
   font-size: 1.4vw;
   font-weight: 500;
+}
+
+button.vueperslides__arrow, *svg {
+  color: #fff !important;
+}
+
+.vueperslides__arrow:active, .vueperslides__arrow:focus {
+  outline: none !important;
 }
 
 </style>

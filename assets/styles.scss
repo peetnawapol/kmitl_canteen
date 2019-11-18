@@ -24,11 +24,11 @@ body {
     overflow-x: hidden;
     font-family: Roboto;
     font-weight: 500 !important;
-    background: rgba(26,24,24, 1) !important;
+    background: rgba(7, 8, 9, 1) !important;
 }
 
 #background {
-    background: rgba(26,24,24, 1);
+    background: rgba(7, 8, 9, 1);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -46,7 +46,7 @@ body {
     width: 100%;
     height: 95%;
     background-position: center top;
-    background-image: linear-gradient(to top, rgba(26,24,24, 1), rgba(100, 100, 100, 0) 80%, transparent 50%), url("../static/wall1.jpg");
+    background-image: linear-gradient(to top, rgba(7, 8, 9, 1), rgba(100, 100, 100, 0) 80%, transparent 50%), url("../static/wall1.jpg");
     background-size: cover; /** we need to compensate for the 50% height **/
     content: '';
     z-index: -999 !important;
