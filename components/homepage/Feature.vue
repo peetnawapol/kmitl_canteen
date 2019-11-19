@@ -53,15 +53,4 @@ i.fas.fa-chevron-down {
   margin: .5%;
 }
 
-ul#item-calousel {
-  list-style: none;
-  width:100%;
-  height: 180px;
-}
-
-ul#item-calousel li {
-  display: inline-block;
-  width: 123px;
-}
-
 </style>

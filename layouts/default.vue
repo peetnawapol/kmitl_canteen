@@ -69,7 +69,7 @@ html {
 }
 
 .cust-nav {
-  background-color: #bf0402 !important;
+  background-color: #2a313d !important;
   opacity: .97;
 }
 

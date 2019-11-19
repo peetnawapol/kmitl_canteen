@@ -7,25 +7,26 @@
       <vueper-slides
         :visible-slides="5"
         slide-multiple
-        :slide-ratio="1/10"
-        :breakpoints="{ 600: { visibleSlides: 4 } }"
+        :slide-ratio="5/17"
+        :breakpoints="{ 600: { visibleSlides: 2}, 900: { visibleSlides: 4 }, 1200: { visibleSlides: 6 } }"
         :bullets="false"
-        :slide-content-outside="true"
+        :slide-content-outside="false"
         :slide-image-inside="true"
         :arrows-outside="false"
         :disable-arrows-on-edges="true"
-        :parallax="true"
+        :parallax="false"
         :touchable="true"
-        :draggingDistance="70"
-        class="mb-5 mt-3 no-shadow"
+        :dragging-distance="70"
+        class="mb-5 mt-2 no-shadow"
       >
-        <b-row class="ml-4 pl-2 d-flex h-100">
+        <b-row class="ml-4 pl-2 d-flex h-100 pb-5 pt-2">
           <b-col>
             <vueper-slide
               v-for="(slide, i) in slide1"
               :key="i"
               :image="slide.image"
               :link="slide.link"
+              :title="slide.title"
               class="mr-1"
             />
           </b-col>
@@ -39,19 +40,19 @@
       <vueper-slides
         :visible-slides="5"
         slide-multiple
-        :slide-ratio="1/10"
-        :breakpoints="{ 600: { visibleSlides: 4 } }"
+        :slide-ratio="1/6"
+        :breakpoints="{ 600: { visibleSlides: 3 }, 900: { visibleSlides: 4 }, 1200: { visibleSlides: 6 } }"
         :bullets="false"
         :slide-content-outside="true"
         :slide-image-inside="true"
         :arrows-outside="false"
         :disable-arrows-on-edges="true"
-        :parallax="true"
+        :parallax="false"
         :touchable="true"
-        :draggingDistance="70"
-        class="mb-5 mt-3 no-shadow"
+        :dragging-distance="70"
+        class="mb-5 mt-2 no-shadow"
       >
-        <b-row class="ml-4 pl-2 d-flex h-100">
+        <b-row class="ml-4 pl-2 d-flex h-100 pb-5 pt-2">
           <b-col>
             <vueper-slide
               v-for="(slide, i) in slide2"
@@ -80,16 +81,19 @@ export default {
     return {
       slide1: [
         {
-          image: 'https://placeimg.com/300/250/any?88',
-          link: '#1'
+          image: 'http://media.ginraidee.s3.amazonaws.com/restaurant/24009/rst_lres_24009_F_56769.jpg',
+          link: '#1',
+          title: 'ข้าวผัดกระเพาหมู'
         },
         {
-          image: 'https://placeimg.com/300/250/any?32',
-          link: '#3'
+          image: 'https://r-han.com/wp-content/uploads/2019/03/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%9C%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B8%E0%B9%89%E0%B8%871-780x439.jpg',
+          link: '#3',
+          title: 'ข้าวผัดกุ้ง'
         },
         {
-          image: 'https://placeimg.com/300/250/any?10',
-          link: '#2'
+          image: 'https://food.mthai.com/app/uploads/2016/01/Hainanese-chicken-rice.jpg',
+          link: '#2',
+          title: 'ข้าวมันไก่'
         },
         {
           image: 'https://placeimg.com/300/250/any?35',
@@ -136,44 +140,42 @@ export default {
       ]
     }
   }
-
-  // methods: {
-  //   next() {
-  //     this.$refs.flickity.next();
-  //   },
-
-  //   previous() {
-  //     this.$refs.flickity.previous();
-  //   }
-  // }
 }
 </script>
 
 <style scoped>
+.vueperslide__image {
+  filter:blur(5px);
+}
+
 .color-wh {
   background-color: rgb(76,76,76);
   height: 145px;
   margin: .5%;
 }
 
-.vueperslide:focus, .vueperslide:hover {
+.vueperslide:hover {
   transform: scale(1.2);
   transition: all .5s;
-  z-index:33;
+  z-index: 33;
 }
 
 .cust-head {
   line-height: 1.25vw;
-  font-size: 1.4vw;
+  font-size: 1.35rem;
   font-weight: 500;
 }
 
-button.vueperslides__arrow, *svg {
-  color: #fff !important;
+a.vueperslide {
+  color:#fafafa;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: Kanit;
+  line-height: 1.56rem;
 }
 
-.vueperslides__arrow:active, .vueperslides__arrow:focus {
-  outline: none !important;
+.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom)::before {
+  display: none;
 }
 
 </style>
