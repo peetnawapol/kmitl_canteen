@@ -144,14 +144,15 @@ export default {
 </script>
 
 <style scoped>
-.vueperslide__image {
-  filter:blur(5px);
-}
 
 .color-wh {
   background-color: rgb(76,76,76);
   height: 145px;
   margin: .5%;
+}
+
+.vueperslide {
+  filter:contrast(110%) saturate(1) sepia(10%);
 }
 
 .vueperslide:hover {
@@ -172,6 +173,12 @@ a.vueperslide {
   font-weight: 500;
   font-family: Kanit;
   line-height: 1.56rem;
+  text-shadow: 0 1.5px #292929;
+}
+
+a.vueperslide:hover {
+  width: 100%;
+  height: 100%;
 }
 
 .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom)::before {
