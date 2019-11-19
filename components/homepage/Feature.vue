@@ -17,6 +17,7 @@
         </b-col>
       </b-row>
     </b-container>
+    <!-- 243, 148, 34 -->
   </div>
 </template>
 
@@ -30,16 +31,42 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .wrap {
   background-color: rgba(34, 40, 49, .6) !important;
-  color: rgb(188,196,209);
+  color: rgb(165,176,193);
   font-family: Kanit, Roboto;
 }
 
-.wrap label.md-form.md-outline  {
-  color: #c5c7c9 !important;
+.wrap .md-form.md-outline input[type="text"] {
+  border-top:none !important;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-color: rgb(153,166,185);
+  color: rgb(223,227,233);
+}
+
+.wrap .md-form.md-outline input[type="text"]+label {
+  color: rgb(165,176,193);
+}
+
+.wrap .md-form.md-outline input[type="text"]:focus:not([readonly]) {
+  border-radius: 4px;
+  border-color: rgb(243, 148, 34);
+  box-shadow: 0 0 0 1px rgb(243, 148, 34) inset;
+  color: #dfe3e9;
+  font-size: 1.15rem;
+  padding: 14px 0 6px 12px;
+}
+
+.wrap .md-form.md-outline input[type="text"]:focus:not([readonly])+label {
+  color: rgb(243, 148, 34);
+}
+
+.wrap i.prefix.active {
+  color:rgb(243, 148, 34);
 }
 
 i.fas.fa-chevron-down {
