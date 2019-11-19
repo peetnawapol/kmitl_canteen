@@ -1,19 +1,17 @@
 <template>
   <div id="section">
-    <b-container fluid="true" class="pt-5 mb-5 pb-0 pl-4 pr-4">
+    <b-container class="pt-5 mb-5 pb-0 pl-4 pr-4 w-100">
       <b-row class="items-box" align-v="end">
-        <!-- <div class="col-lg-12 p-5 pt-5 d-flex justify-content-center align-items-center">
-          <form class="form-inline md-form form-sm active-pink-2 mt-5" style="width:100% !important;">
-            <input
-              class="form-control form-control-lg mr-3 w-100"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-              autofocus
-            >
-            <i class="fas fa-search" aria-hidden="true" />
-          </form>
-        </div> -->
+        <div class="col-lg-12 p-5 pt-5 d-flex justify-content-center align-items-center wrap">
+          <mdb-input
+            type="text"
+            label="กินอะไรดี?"
+            icon="search"
+            size="lg"
+            outline
+            class="w-100"
+          />
+        </div>
         <b-col lg="12" align-self="end" class="d-flex justify-content-center mt-5">
           <i class="fas fa-chevron-down text-white" />
         </b-col>
@@ -23,12 +21,27 @@
 </template>
 
 <script>
+import { mdbInput } from 'mdbvue'
 
 export default {
+  components: {
+    mdbInput
+  }
 }
 </script>
 
 <style scoped>
+
+.wrap {
+  background-color: rgba(34, 40, 49, .6) !important;
+  color: rgb(188,196,209);
+  font-family: Kanit, Roboto;
+}
+
+.wrap label.md-form.md-outline  {
+  color: #c5c7c9 !important;
+}
+
 i.fas.fa-chevron-down {
   font-size: 3rem;
 }

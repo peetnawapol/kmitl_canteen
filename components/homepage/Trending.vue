@@ -173,7 +173,7 @@ a.vueperslide {
   font-weight: 500;
   font-family: Kanit;
   line-height: 1.56rem;
-  text-shadow: 0 1.5px #292929;
+  text-shadow: 0 1px #292929;
 }
 
 a.vueperslide:hover {

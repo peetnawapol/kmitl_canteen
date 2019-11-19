@@ -33,7 +33,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100vh;
     z-index: -999 !important;
@@ -45,9 +45,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 95%;
+    height: 96%;
     background-position: center top;
-    background-image: linear-gradient(to top, rgba(34, 40, 49, 1), rgba(100, 100, 100, 0) 80%, transparent 50%), url("../static/wall1.jpg");
+    background-image: linear-gradient(to top, rgba(34, 40, 49, 1), rgba(100, 100, 100, 0) 81%, transparent 50%), url("../static/wall1.jpg");
     background-size: cover; /** we need to compensate for the 50% height **/
     content: '';
     z-index: -999 !important;
@@ -61,3 +61,19 @@ button:focus {
 .transparent {
     background-color: transparent !important;
 }
+
+@-webkit-keyframes autofill {
+    to {
+    color: #666;
+    background: transparent; } }
+  
+    @keyframes autofill {
+    to {
+    color: #666;
+    background: transparent; } }
+  
+    input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
