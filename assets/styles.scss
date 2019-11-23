@@ -1,0 +1,79 @@
+/*** Global CSS ***/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kanit:400,600,700&display=swap');
+
+*{
+    z-index: 1;
+}
+// .asd{
+//     animation-name: asd;
+//     animation-duration: 1ms;
+//     animation-iteration-count: infinite;
+// }
+// @keyframes asd{
+//     14%{background-color:red;}
+//     28%{background-color:orange;}
+//     42%{background-color:yellow;}
+//     56%{background-color:green;}
+//     70%{background-color:blue;}
+//     84%{background-color:cyan;}
+//     100%{background-color:purple;}
+// }
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+    font-family: Roboto, Kanit;
+    font-weight: 500 !important;
+    background: rgba(34, 40, 49, 1) !important;
+}
+
+#background {
+    background: rgba(34, 40, 49, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -999 !important;
+}
+
+#background::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96%;
+    background-position: center top;
+    background-image: linear-gradient(to top, rgba(34, 40, 49, 1), rgba(100, 100, 100, 0) 81%, transparent 50%), url("../static/wall1.jpg");
+    background-size: cover; /** we need to compensate for the 50% height **/
+    content: '';
+    z-index: -999 !important;
+}
+
+button:focus {
+    box-shadow: none !important;
+    outline: none !important; 
+}
+
+.transparent {
+    background-color: transparent !important;
+}
+
+@-webkit-keyframes autofill {
+    to {
+    color: #666;
+    background: transparent; } }
+  
+    @keyframes autofill {
+    to {
+    color: #666;
+    background: transparent; } }
+  
+    input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
