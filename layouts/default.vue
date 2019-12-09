@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" class="cust-nav" fixed="top">
+    <b-navbar toggleable="lg" type="dark" class="navbar-expand-lg scrolling-navbar" fixed="top">
       <div class="container-fluid">
         <b-navbar-toggle target="nav-collapse" />
 
@@ -18,7 +18,7 @@
           </b-navbar-nav>
         </b-collapse>
 
-        <b-navbar-brand href="#" class="mx-auto d-md-block d-sm-none">
+        <b-navbar-brand href="#" class="mx-auto d-md-block d-sm-none" style="color: rgb(243, 148, 34);">
           KMITL CANTEEN
         </b-navbar-brand>
 
@@ -45,8 +45,16 @@
       </div>
     </b-navbar>
     <nuxt />
+
   </div>
 </template>
+
+<script>
+
+export default {
+
+}
+</script>
 
 <style>
 html {
@@ -68,9 +76,17 @@ html {
   margin: 0;
 }
 
-.cust-nav {
-  background-color: #2a313d !important;
-  opacity: .97;
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+.page-footer {
+  bottom: 0;
+  left: 0;
 }
 
 .button--green {
@@ -100,5 +116,12 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 </style>

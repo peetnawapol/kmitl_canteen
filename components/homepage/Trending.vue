@@ -1,145 +1,78 @@
 <template>
-  <b-container fluid="true" class="pl-0 pr-0 pt-5">
-    <h2 class="text-white cust-head ml-5">
-      Recommended Meal
-    </h2>
-    <no-ssr placeholder="loading...">
-      <vueper-slides
-        :visible-slides="5"
-        slide-multiple
-        :slide-ratio="5/17"
-        :breakpoints="{ 600: { visibleSlides: 2}, 900: { visibleSlides: 4 }, 1200: { visibleSlides: 6 } }"
-        :bullets="false"
-        :slide-content-outside="false"
-        :slide-image-inside="true"
-        :arrows-outside="false"
-        :disable-arrows-on-edges="true"
-        :parallax="false"
-        :touchable="true"
-        :dragging-distance="70"
-        class="mb-5 mt-2 no-shadow"
-      >
-        <b-row class="ml-4 pl-2 d-flex h-100 pb-5 pt-2">
-          <b-col>
-            <vueper-slide
-              v-for="(slide, i) in slide1"
-              :key="i"
-              :image="slide.image"
-              :link="slide.link"
-              :title="slide.title"
-              class="mr-1"
-            />
-          </b-col>
-        </b-row>
-      </vueper-slides>
-    </no-ssr>
-    <h2 class="text-white cust-head ml-5">
-      Main Course
-    </h2>
-    <no-ssr placeholder="loading...">
-      <vueper-slides
-        :visible-slides="5"
-        slide-multiple
-        :slide-ratio="1/6"
-        :breakpoints="{ 600: { visibleSlides: 3 }, 900: { visibleSlides: 4 }, 1200: { visibleSlides: 6 } }"
-        :bullets="false"
-        :slide-content-outside="true"
-        :slide-image-inside="true"
-        :arrows-outside="false"
-        :disable-arrows-on-edges="true"
-        :parallax="false"
-        :touchable="true"
-        :dragging-distance="70"
-        class="mb-5 mt-2 no-shadow"
-      >
-        <b-row class="ml-4 pl-2 d-flex h-100 pb-5 pt-2">
-          <b-col>
-            <vueper-slide
-              v-for="(slide, i) in slide2"
-              :key="i"
-              :image="slide.image"
-              :link="slide.link"
-              class="mr-1"
-            />
-          </b-col>
-        </b-row>
-      </vueper-slides>
-    </no-ssr>
+  <b-container fluid="true">
+    <b-row class="p-3 d-flex h-100 pb-5 pt-0">
+      <!-- Row for Recommended Meal -->
+      <h2 class="cust-head pl-2 pr-3">
+        <i class="fas fa-award mr-2" />Recommended Meal
+      </h2>
+      <span class="w-100 mb-3" />
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRpRQNJPcGo7iKWQkQEXGtEIZvuHB5TUKjZG-8l0GlNj5V5z9GO" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>สปาเก็ตตี้ไก่</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <!-- Row for FastFood -->
+      <h2 class="cust-head pl-2 pr-3">
+        <i class="fas fa-hamburger mr-2" />Fast Food
+      </h2>
+      <span class="w-100 mb-3" />
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+      <b-col lg="3" md="6" sm="6" class="pl-2 pr-2 mb-4">
+        <a href="#" class="trending">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ4nfZ0iFaRkYfX7SRH5IEtIL1FeF3SXqEfCd8dy59SwcQG7TC9" alt="Food Name" class="img-fluid rounded hoverable">
+          <h3>ข้าวผัดกะเพราหมูสับ</h3>
+          <p />
+        </a>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 <script>
-import 'vueperslides/dist/vueperslides.css'
-import { VueperSlides, VueperSlide } from 'vueperslides'
 
 export default {
-  components: {
-    VueperSlides,
-    VueperSlide
-  },
-
-  data () {
-    return {
-      slide1: [
-        {
-          image: 'http://media.ginraidee.s3.amazonaws.com/restaurant/24009/rst_lres_24009_F_56769.jpg',
-          link: '#1',
-          title: 'ข้าวผัดกระเพาหมู'
-        },
-        {
-          image: 'https://r-han.com/wp-content/uploads/2019/03/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%9C%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B8%E0%B9%89%E0%B8%871-780x439.jpg',
-          link: '#3',
-          title: 'ข้าวผัดกุ้ง'
-        },
-        {
-          image: 'https://food.mthai.com/app/uploads/2016/01/Hainanese-chicken-rice.jpg',
-          link: '#2',
-          title: 'ข้าวมันไก่'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?35',
-          link: '#5'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?69',
-          link: '#6'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?47',
-          link: '#7'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?55',
-          link: '#15'
-        }
-      ],
-      slide2: [
-        {
-          image: 'https://placeimg.com/300/250/any?11',
-          link: '#1'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?12',
-          link: '#3'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?15',
-          link: '#2'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?18',
-          link: '#5'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?16',
-          link: '#6'
-        },
-        {
-          image: 'https://placeimg.com/300/250/any?17',
-          link: '#7'
-        }
-      ]
-    }
-  }
 }
 </script>
 
@@ -151,38 +84,75 @@ export default {
   margin: .5%;
 }
 
-.vueperslide {
-  filter:contrast(110%) saturate(1) sepia(10%);
-}
-
-.vueperslide:hover {
-  transform: scale(1.2);
-  transition: all .5s;
-  z-index: 33;
-}
-
 .cust-head {
   line-height: 1.25vw;
   font-size: 1.35rem;
   font-weight: 500;
+  color: rgb(243, 148, 34);
+  text-transform: uppercase;
 }
 
-a.vueperslide {
-  color:#fafafa;
-  font-size: 1.4rem;
-  font-weight: 500;
-  font-family: Kanit;
-  line-height: 1.56rem;
-  text-shadow: 0 1px #292929;
-}
-
-a.vueperslide:hover {
+a.trending {
+  display:block;
   width: 100%;
-  height: 100%;
 }
 
-.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom)::before {
-  display: none;
+a.trending img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+}
+
+a.trending img:hover {
+  opacity: .6;
+}
+
+a.trending:hover h3 {
+  color: rgba(243, 148, 34, .8);
+  transition: .6s ease-in;
+}
+
+a.trending h3 {
+  color: rgb(211,217,225);
+  font-family: Roboto, Kanit;
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: .6s ease-out;
+}
+
+/** Extra small devices (portrait phones, less than 576px) **/
+@media (max-width: 575.98px) {
+  a.trending img {
+    height: 52vw !important;
+  }
+ }
+
+/** Small devices (landscape phones, 576px and up) **/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  a.trending img {
+    height: 30vw !important;
+  }
+ }
+
+/**  Medium devices (tablets, 768px and up) **/
+@media (min-width: 768px) and (max-width: 991.98px) {
+  a.trending img {
+    height: 26vw !important;
+  }
+ }
+
+/** Large devices (desktops, 992px and up) **/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  a.trending img {
+    height: 16vw !important;
+  }
+}
+
+/** Extra large devices (large desktops, 1200px and up) **/
+@media (min-width: 1200px) {
+  a.trending img {
+    height: 14vw !important;
+  }
 }
 
 </style>
