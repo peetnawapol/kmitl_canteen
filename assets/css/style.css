@@ -1,0 +1,279 @@
+/*** Global CSS ***/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kanit:400,600,700&display=swap');
+
+*{
+    z-index: 1;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+    font-family: Roboto, Kanit;
+    font-weight: 500 !important;
+    background: rgba(34, 40, 49, 1) !important;
+}
+
+#background {
+    background: rgba(34, 40, 49, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -999 !important;
+}
+
+#background::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96%;
+    background-position: center top;
+    background-image: linear-gradient(to top, rgba(34, 40, 49, 1), rgba(100, 100, 100, 0) 81%, transparent 50%), url("../../static/wall1.jpg");
+    background-size: cover; /** we need to compensate for the 50% height **/
+    content: '';
+    z-index: -999 !important;
+}
+
+button:focus {
+    box-shadow: none !important;
+    outline: none !important; 
+}
+
+.transparent {
+    background-color: transparent !important;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: rgba(53,73,94, .93);
+}
+
+.page-footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.page-footer::after {
+  position: absolute;
+}
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.own-color {
+  background-color: rgba(53,73,94, 1);
+}
+
+.wrap {
+    background-color: rgba(34, 40, 49, .6) !important;
+    color: rgb(165,176,193);
+    font-family: Kanit, Roboto;
+  }
+
+.page-wrap {
+  background-color: rgba(34, 40, 49, .9) !important;
+  color: rgb(165,176,193);
+  font-family: Kanit, Roboto;
+  margin-top: 8.5rem;
+}
+
+a.canteen_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44,52,64, .86);
+  color: rgb(165,176,193);
+  padding: 2em;
+  transition: .3s ease-out;
+  border-radius: 3px;
+}
+
+a.canteen_link i {
+  font-size: 3rem;
+  transform: translateY(25%);
+  padding-bottom: 1.2rem;
+}
+
+a.canteen_link span {
+  text-align: center;
+  word-wrap: wrap;
+  transform: translateY(1%);
+}
+
+a.canteen_link:hover {
+  color: rgba(243, 148, 34, .8);
+  transition: .3s ease-in;
+}
+  
+  .wrap .md-form.md-outline input[type="text"] {
+    border-top:none !important;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-color: rgb(153,166,185);
+    color: rgb(223,227,233);
+  }
+  
+  .wrap .md-form.md-outline input[type="text"]+label {
+    color: rgb(165,176,193);
+  }
+  
+  .wrap .md-form.md-outline input[type="text"]:focus:not([readonly]) {
+    border-radius: 4px;
+    border-color: rgb(243, 148, 34);
+    box-shadow: 0 0 0 1px rgb(243, 148, 34) inset;
+    color: #dfe3e9;
+    font-size: 1.15rem;
+    padding: 14px 0 6px 12px;
+  }
+  
+  .wrap .md-form.md-outline input[type="text"]:focus:not([readonly])+label {
+    color: rgb(243, 148, 34);
+  }
+  
+  .wrap i.prefix.active {
+    color:rgb(243, 148, 34);
+  }
+  
+  i.fas.fa-chevron-down {
+    font-size: 3rem;
+  }
+  
+  .items-box {
+    z-index: 1;
+    height: 89vh;
+  }
+  
+  .items-box h1.h1-post {
+    font-size: 4.4rem;
+    font-weight: 700;
+    color: #fafafa !important;
+    text-shadow: 0 1.5px #292929;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+  
+  .color-wh {
+    background-color: rgb(76,76,76);
+    height: 145px;
+    margin: .5%;
+  }
+
+  .color-wh {
+    background-color: rgb(76,76,76);
+    height: 145px;
+    margin: .5%;
+  }
+  
+  .cust-head {
+    line-height: 1.25vw;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: rgb(243, 148, 34);
+    text-transform: uppercase;
+  }
+  
+  a.trending {
+    display:block;
+    width: 100%;
+  }
+  
+  a.trending img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+  }
+  
+  a.trending img:hover {
+    opacity: .6;
+  }
+  
+  a.trending:hover h3 {
+    color: rgba(243, 148, 34, .8);
+    transition: .6s ease-in;
+  }
+  
+  a.trending h3 {
+    color: rgb(211,217,225);
+    font-family: Roboto, Kanit;
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: .6s ease-out;
+  }
+  
+  /** Extra small devices (portrait phones, less than 576px) **/
+  @media (max-width: 575.98px) {
+    a.trending img {
+      height: 52vw !important;
+    }
+    .navbar {
+      background-color: rgba(53,73,94, .93);
+    }
+   }
+  
+  /** Small devices (landscape phones, 576px and up) **/
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    a.trending img {
+      height: 30vw !important;
+    }
+    .navbar {
+      background-color: rgba(53,73,94, .93);
+    }
+   }
+  
+  /**  Medium devices (tablets, 768px and up) **/
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    a.trending img {
+      height: 26vw !important;
+    }
+    .navbar {
+      background-color: rgba(53,73,94, .93);
+    }
+   }
+  
+  /** Large devices (desktops, 992px and up) **/
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    a.trending img {
+      height: 16vw !important;
+    }
+  }
+  
+  /** Extra large devices (large desktops, 1200px and up) **/
+  @media (min-width: 1200px) {
+    a.trending img {
+      height: 14vw !important;
+    }
+  }

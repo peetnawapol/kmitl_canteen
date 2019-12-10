@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-12 ">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <h1>Register</h1>
+                    <form id="commentForm" action="regis_script.php" method="post">
+                        <!-- Material input -->
+                        <div class="row">
+
+                            <!--First Name-->
+                            <div class="col-md-6">
+                                <div class="md-form ">
+                                    <i class="fas fa-user prefix"></i>
+                                    <input type="text" id="idFirstname" class="form-control" name="f_name">
+                                    <label for="idFirstname">First Name</label>
+                                </div>
+                            </div>
+
+                            <!--Last Name-->
+                            <div class="col-md-6">
+                                <div class="md-form ">
+                                    <input type="text" id="idLastname" class="form-control" name="l_name">
+                                    <label for="idLastname">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Student ID & Faculty-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <i class="fas fa-user-graduate prefix"></i>
+                                    <input type="text" id="idStd" class="form-control" name="id_std">
+                                    <label for="idStd" >Student ID</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <i class="fas fa-school prefix"></i>
+                                    <input type="text" id="idFaculty" class="form-control" name="faculty">
+                                    <label for="idFaculty">Faculty</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--Email-->
+                                <div class="md-form">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input type="email" id="inputValidationEx" class="form-control validate" name="email">
+                                    <label for="inputValidationEx" data-error="wrong" data-success="right">Type your
+                                        email</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                    <div class="md-form">
+                                            <select class="browser-default custom-select " name="gender">
+                                                    <option selected>Gender</option>
+                                                    <option value="1">Male</option>
+                                                    <option value="2">Female</option>
+                                                  </select>
+                                            </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <!--Password-->
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <i class="fas fa-key prefix"></i>
+                                    <input type="password" id="idPassword" class="form-control" name="pass">
+                                    <label for="idPassword">Password</label>
+                                </div>
+                            </div>
+
+                            <!--Re-Password-->
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <i class="fas fa-key prefix"></i>
+                                    <input type="password" id="idRepassword" class="form-control" name="re_pass">
+                                    <label for="idRepassword">Re-Password</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md-form">
+                                <i class="fas fa-phone prefix"></i>
+                                <input type="number" id="idPhone" class="form-control" name="tel">
+                                <label for="idPhone">Phone Number</label>
+                        </div>
+
+
+                        <input id="commentBtn" type="submit" class="btn btn-outline-elegant btn-rounded waves-effect"
+                            value="Register">
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <script>
+
+            </script>
+            <!-- JQuery -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <!-- Bootstrap tooltips -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+            <!-- Bootstrap core JavaScript -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <!-- MDB core JavaScript -->
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+</body>
+
+</html>
