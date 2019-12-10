@@ -33,7 +33,7 @@
         <div class="col-lg-12 p-5 pt-5 d-flex justify-content-center align-items-center wrap">
         <div class="md-form md-outline w-100">
             <i class="fas fa-search prefix"></i>
-            <input type="text" id="search" class="form-control">
+            <input type="text" id="search" class="form-control" autofocus>
             <label for="search">กินอะไรดี?</label>
         </div>
         </div>

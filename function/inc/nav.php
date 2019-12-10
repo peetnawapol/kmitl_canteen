@@ -11,7 +11,7 @@
         </li>
         </ul>
     </div>
-    <a class="navbar-brand mx-auto orange-text font-weight-light" href="#"><strong>KMITL CANTEEN</strong></a>
+    <a class="navbar-brand mx-auto font-weight-light" href="#">KMITL CANTEEN</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
