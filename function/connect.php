@@ -1,10 +1,11 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "12345678";
-    $database = "project";
+    $password = "root";
+    $database = "canteen";
+    $port = 3308;
 
-    $conn = new mysqli($servername, $username, $password,$database);
+    $conn = new mysqli($servername, $username, $password,$database, $port);
 
     mysqli_set_charset($conn,'utf8');
 
