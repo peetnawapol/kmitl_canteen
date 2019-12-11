@@ -65,6 +65,7 @@
           exit;
   }
     }
+  
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,11 +103,21 @@
     <span class="orange-text"><?=$row['food_name']?></span> @ <?=$row['res_name']?>
   </h1>
     <span class="w-100"></span>
-    <small class="col d-flex justify-content-center mb-4"><i class="fas fa-map-marker-alt mr-2"></i><?=$row['cname']?></small>
+    <small class="col d-flex justify-content-center mb-4">
+      <i class="fas fa-map-marker-alt mr-2"></i><?=$row['cname']?>
+    </small>
     <span class="clear-fix w-100"></span>
   </div>
   <div class="col-xl-6 col-lg-7 col-md-10 col-sm-8 col-xs-6 order-lists p-4 mb-3">
-    <span class="page_cartcount"><i class="fas fa-shopping-cart mr-2"></i><?=$_SESSION['strQty'][array_search($row["fid"], $_SESSION["strID"])];?></span>
+    <span class="page_cartcount">
+      <i class="fas fa-shopping-cart mr-1"></i>
+      <?php 
+      if (array_sum($_SESSION['strQty']) >= 1) {
+        echo $_SESSION['strQty'][array_search($row["fid"], $_SESSION["strID"])];
+      } else {
+        echo 0; 
+      } ?>
+    </span>
     <div class="row d-flex justify-content-center">
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 d-flex justify-content-center">
     <img src="<?=$row['food_img']?>" alt="<?=$row['food_name']?>" class="rounded-circle img-fluid" >
