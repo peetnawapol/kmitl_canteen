@@ -1,13 +1,70 @@
 <?php require_once("function/connect.php"); 
-$query = "SELECT * FROM food as f 
-inner join restaurant as r 
-on r.res_id = $_GET[res]
-inner join canteen as c
-on c.cid = $_GET[canteen]
-WHERE f.fid = $_GET[menu] and r.can_ref = $_GET[canteen]";
-$result = $conn->query($query);
+      $query = "SELECT * FROM food as f 
+      inner join restaurant as r 
+      on r.res_id = $_GET[res]
+      inner join canteen as c
+      on c.cid = $_GET[canteen]
+      WHERE f.fid = $_GET[menu] and r.can_ref = $_GET[canteen]";
+      $result = $conn->query($query);
 
-$row = $result->fetch_array(MYSQLI_ASSOC)
+      $row = $result->fetch_array(MYSQLI_ASSOC);
+
+      if ($_GET['action'] == "add") {
+        //fisrt order
+        if(!isset($_SESSION["items"]))
+        {
+          $_SESSION["items"] = 0;
+          $_SESSION["strID"][0] = $row["fid"];
+          $_SESSION["strQty"][0] = 1;
+          header('Location: ' . $_SERVER['HTTP_REFERER']);
+          exit;
+        }
+        else
+        {
+          $key = array_search($row["fid"], $_SESSION["strID"]);
+            if((string)$key!="")
+            {
+              $_SESSION["strQty"][$key] = $_SESSION["strQty"][$key] + 1;
+            }
+            else
+            {
+              $_SESSION["items"] = $_SESSION["items"] + 1;
+              $cntNewLine = $_SESSION["items"];
+              $_SESSION["strID"][$cntNewLine] = $row["fid"];
+              $_SESSION["strQty"][$cntNewLine] = 1;
+            }
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
+    }}
+
+    if ($_GET['action'] == 'reset') {
+      //fisrt order
+      if(!isset($_SESSION["items"]))
+      {
+        $_SESSION["items"] = 0;
+        $_SESSION["strID"][0] = $row["fid"];
+        $_SESSION["strQty"][0] = 0;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+      }
+      else
+      {
+        $key = array_search($row["fid"], $_SESSION["strID"]);
+          if((string)$key!="")
+          {
+            $_SESSION["strQty"][$key] = $_SESSION["strQty"][$key] - 1;
+          }
+          else
+          {
+            $_SESSION["items"] = $_SESSION["items"] - 1;
+            $cntNewLine = $_SESSION["items"];
+            $_SESSION["strID"][$cntNewLine] = $row["fid"];
+            $_SESSION["strQty"][$cntNewLine] = 1;
+          }
+          header('Location: ' . $_SERVER['HTTP_REFERER']);
+          exit;
+  }
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -49,18 +106,20 @@ $row = $result->fetch_array(MYSQLI_ASSOC)
     <span class="clear-fix w-100"></span>
   </div>
   <div class="col-xl-6 col-lg-7 col-md-10 col-sm-8 col-xs-6 order-lists p-4 mb-3">
+    <span class="page_cartcount"><i class="fas fa-shopping-cart mr-2"></i><?=$_SESSION['strQty'][array_search($row["fid"], $_SESSION["strID"])];?></span>
     <div class="row d-flex justify-content-center">
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 d-flex justify-content-center">
     <img src="<?=$row['food_img']?>" alt="<?=$row['food_name']?>" class="rounded-circle img-fluid" >
     </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 mt-3">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10 mt-4">
     <i class="fas fa-quote-left mr-2"></i><?=$row['food_desc']?>
     <span class="w-100"></span>
     <p class="orange-text mt-2">฿<?=$row['food_price']?></p>
     <span class="w-100 clear-fix"></span>
     <div class="row  mt-4">
     <div class="col align-items-center">
-    <button type="button" class="btn btn-amber ml-0 mr-4">เพิ่มลงในรายการ</button><a href="index.php">ยกเลิก</a>
+    <button type="button" class="btn btn-amber ml-0 mr-4" onclick="window.location.href='?canteen=<?=$row['cid'];?>&res=<?=$row['res_id']?>&menu=<?=$row['fid'];?>&action=add'">เพิ่มในรายการ X1</button>
+  <?php if($_SESSION['strQty'][array_search($row["fid"], $_SESSION["strID"])] > 0) { ?><a href="?canteen=<?=$row['cid'];?>&res=<?=$row['res_id']?>&menu=<?=$row['fid'];?>&action=reset">ลบ</a><?php } ?>
     </div>
     </div>
     </div>

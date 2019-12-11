@@ -38,13 +38,13 @@
         </div>
         </div>
         <div class="col-lg-12 align-self-end d-flex justify-content-center mt-5">
-          <i class="fas fa-chevron-down text-white" ></i>
+          <a href="#main_wrap"><i class="fas fa-chevron-down text-white" ></i></a>
         </div>
         </div>
       </div>
     </div>
   <!-- Content Zone -->
-  <div class="container-fluid">
+  <div class="container-fluid" id="main_wrap">
     <?php include("function/inc/trending.php"); ?>
   </div>
   <!-- Footer -->

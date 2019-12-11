@@ -1,18 +1,27 @@
+<?php require_once("function/connect.php");
+    $query = "SELECT * 
+    from canteen ORDER BY cid DESC";
+    $result = $conn->query($query);
+
+    $cat_query = "SELECT * 
+    from category ORDER BY cat_id DESC";
+    $cat_res = $conn->query($cat_query);
+?>
 <!-- Footer -->
 <footer class="page-footer font-small own-color pt-4">
 
   <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
+  <div class="container text-center text-md-left">
 
     <!-- Grid row -->
-    <div class="row">
+    <div class="row d-flex align-items-center" style="height: auto; padding: 4rem 0 4rem 0;">
 
       <!-- Grid column -->
       <div class="col-md-6 mt-md-0 mt-3">
 
         <!-- Content -->
-        <h5 class="text-uppercase">KMITL CANTEEN 2019</h5>
-        <p>This is a web application for reduce times to waiting any restaurant in many canteen of KMITL</p>
+        <h5 class="text-uppercase mb-3">KMITL CANTEEN 2019</h5>
+        <p style="color: rgb(165,176,193);">This is a web application for reduce times to waiting any restaurant in many canteen of KMITL</p>
 
       </div>
       <!-- Grid column -->
@@ -25,19 +34,12 @@
         <!-- Links -->
         <h5 class="text-uppercase">ประเภทอาหาร</h5>
 
-        <ul class="list-unstyled">
+        <ul class="list-unstyled mt-2">
+          <?php while($cat = $cat_res->fetch_array(MYSQLI_ASSOC)) { ?>
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#"><?=$cat['cat_name']?></a>
           </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
+          <?php } ?>
         </ul>
 
       </div>
@@ -49,19 +51,12 @@
         <!-- Links -->
         <h5 class="text-uppercase">โรงอาหาร</h5>
 
-        <ul class="list-unstyled">
+        <ul class="list-unstyled mt-2">
+          <?php while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!"><?=$row['cname'];?></a>
           </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
+          <?php } ?>
         </ul>
 
       </div>
