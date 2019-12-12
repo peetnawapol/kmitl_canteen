@@ -46,53 +46,100 @@
           if(array_sum($_SESSION['strQty']) > 0) {
             $sumtotal = 0;
             $total = 0;
-
+            
             for($i=0; $i<=$_SESSION["items"]; $i++) {
                 if($_SESSION["strQty"][$i]!="")
                 {
-                    $cartquery="SELECT * FROM food WHERE fid = '".$_SESSION["strID"][$i]."' ";
+                    $cartquery="SELECT * FROM food
+                     WHERE food.fid = '".$_SESSION["strID"][$i]."'";
                     $cartsql=$conn->query($cartquery);
                     $food=$cartsql->fetch_assoc();
                     $total=$_SESSION["strQty"][$i] * $food["food_price"];
                     $sumtotal = $sumtotal + $total; 
 
                     ?>
-                <span class="d-flex justify-content-center"><span class="orange-text mr-2"><?=$food['food_name'];?></span> - ฿<?=$food['food_price']?> X<?=$_SESSION['strQty'][$i]?></span>
-                <?php } }
-            ?>
+                <span class="d-flex justify-content-center">
+                  <span class="orange-text mr-2">
+                    <?=$food['food_name'];?></span> - ฿<?=$food['food_price']?> X<?=$_SESSION['strQty'][$i]?> 
+                    <small><p class="text-white text-center bg-info rounded pl-2 pr-2 ml-3">WAITING</p></small>
+                  </span>
+                <?php } } ?>
             <span class="page_cartcount">ยอดสุทธิ ฿<?=$sumtotal;?></span>
             <div class="row w-100 mt-4">
             <div class="col d-flex justify-content-center align-items-center">
+            <!-- if not log in -->
             <?php if (!isset($_SESSION['loggedin'])) { ?>
-            <button type="button" class="btn btn-amber" onclick="window.location.href='account.php'">สั่งเลย!</button><?php } else { ?>
-              <!-- <form name="order" method="post" enctype="multipart/form-data">
-              <?php 
-              // if(array_sum($_SESSION['strQty']) > 0) {
-              //     $sumtotal = 0;
-              //     $total = 0;
+            <button type="button" class="btn btn-amber" onclick="window.location.href='account.php'">สั่งเลย!</button>
+            <!-- if logged in -->
+            <?php } else { ?>
+            <form method="post" class="d-flex justify-content-center w-50">
+              <?php
 
-              //     for($i=0; $i<=$_SESSION["items"]; $i++) {
-              //         if($_SESSION["strQty"][$i]!="")
-              //         {
-              //             $cartquery="SELECT * FROM food WHERE fid = '".$_SESSION["strID"][$i]."' ";
-              //             $cartsql=$conn->query($cartquery);
-              //             $food=$cartsql->fetch_assoc();
-              //             $total=$_SESSION["strQty"][$i] * $food["food_price"];
-              //             $sumtotal = $sumtotal + $total; 
+              if(array_sum($_SESSION['strQty']) > 0) {
+                  $sumtotal = 0;
+                  $total = 0;
 
-                    ?>
-                <input type="hidden" value="<?=$_SESSION['u_name']?>" name="name">
-                <input type="hidden" value="<?=$_SESSION['strQty'][$i];?>" name="tel">
-                <input type="hidden" value="place" name="food">
-                <input type="hidden" value="key" name="canteen">
-                <input type="hidden" value="key" name="resta">
-                <input type="hidden" value="key" name="qty">
-                      <?php// } } } ?> -->
-            <button type="button" class="btn btn-amber" onclick="return checkOut()">
+                  if(isset($_POST['submit'])) {
+                    $f_arr = array();
+                    $date = new DateTime();
+                    
+                    for($i=0; $i<=$_SESSION["items"]; $i++) { 
+                      if($_SESSION["strQty"][$i]!="")
+                      { 
+                        $cartquery="SELECT * FROM food
+                         inner join restaurant as r 
+                          on r.res_id = food.res_ref
+                          inner join canteen as c
+                          on c.cid = r.can_ref
+                         WHERE food.fid = '".$_SESSION["strID"][$i]."' ";
+                        $cartsql=$conn->query($cartquery);
+                        $food=$cartsql->fetch_assoc();
+                        $realtime = $date->format('d-m-Y H:i:s');
+
+                      $f_arr[] = array(
+                      'id' => NULL,
+                      'name' => $_SESSION['u_name'],
+                      'food_name' => $food['food_name'],
+                      'canteen' => $food['cname'],
+                      'restaurant' => $food['res_name'],
+                      'qty' => $_SESSION["strQty"][$i], 
+
+                      'status' => 'PROCESS');
+                      }
+                    }
+
+              if(is_array($f_arr)) {
+                 $sql = "INSERT INTO order_lists (id_order, customer_name, food_name, can_name, res_name, quantity, status) VALUES";
+                 $valuesArr = array();
+                foreach($f_arr as $row){
+                    $id = (int) $row['id'];
+                    $nickname = mysqli_escape_string($conn, $row['name']);
+                    $fname = mysqli_escape_string($conn, $row['food_name']);
+                    $can = mysqli_escape_string($conn, $row['canteen']);
+                    $res = mysqli_escape_string($conn, $row['restaurant']);
+                    $quan = mysqli_escape_string($conn, $row['qty']);
+
+                    $stat = mysqli_escape_string($conn, $row['status']);
+
+                    $valuesArr[] = "('$id', '$nickname', '$fname', '$can', '$res', '$quan', '$stat')";
+                }
+                 $sql .= implode(',', $valuesArr);
+                 if(mysqli_query($conn, $sql) == TRUE) {
+                  header('Location: ' . $_SERVER['HTTP_REFERER']);
+                  exit;
+                 } else {
+                  header('Location: ' . $_SERVER['HTTP_REFERER']);
+                  exit;
+                 }
+               }
+                  }
+             } ?> 
+            <button type="submit" name="submit" class=" btn btn-amber">
             สั่งเลย!
             </button>
-            <!-- </form> <?php } ?> -->
-              <a href="" onclick="resetCart()" class="white-text small-text">ลบทั้งหมด</a>
+            </form>
+            <?php } ?>
+              <a href="" onclick="return resetCart()" class="white-text small-text">ลบทั้งหมด</a>
             </div>
             </div>
               <?php
@@ -117,24 +164,29 @@
     function resetCart() {
         let xhr = new XMLHttpRequest();
         xhr.onload = function() {
-            document.location = window.location.reload(history.back());
+            document.location = window.location.reload();
         }
         xhr.open('GET', 'function/inc/clear_cart.php', true);
         xhr.send();
     }
 
-    function checkOut() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      $.ajax({
-              type : "POST",  //type of method
-              url  : "profile.php",  //your page
-              data : { name : name, email : email, password : password },// passing the values
-              success: function(res){  
-                                      //do what you want here...
-                      }
-          });
+    // function checkOut() {
+    //   const params = {
+    //   name: document.querySelector("#cust_name").value,
+    //   food: document.querySelector("#f_name").value,
+    //   res: document.querySelector("#res").value,
+    //   qty: document.querySelector("#qty").value
+    //   }
 
-    }
+    //   $.ajax({
+    //   type: "POST",
+    //   contentType: "application/json; charset=utf-8",
+    //   url: "function/checkout.php",
+    //   data: { params },
+    //   success: function (result) {
+    //        alert('success');
+    //   }
+    //   });
+
+    // }
 </script>
