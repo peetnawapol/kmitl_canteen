@@ -1,4 +1,5 @@
-<?php require_once("function/authentication.php"); ?>
+<?php require_once("function/authentication.php"); 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -69,7 +70,7 @@
       $stmt->fetch();
       $stmt->close();
       ?>
-    <form action="" method="post">
+    <form method="post">
     <div class="md-form">
         <i class="fas fa-id-card prefix"></i>
         <input type="text" name="student_id" class="form-control" disabled>
