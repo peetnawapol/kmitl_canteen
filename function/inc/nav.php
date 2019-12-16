@@ -104,7 +104,7 @@
                       'restaurant' => $food['res_name'],
                       'qty' => $_SESSION["strQty"][$i], 
 
-                      'status' => 'PROCESS');
+                      'status' => 'NOT_PROCESS');
                       }
                     }
 
@@ -125,6 +125,11 @@
                 }
                  $sql .= implode(',', $valuesArr);
                  if(mysqli_query($conn, $sql) == TRUE) {
+                  unset($_SESSION['items']);
+                   unset($_SESSION['strQty']);
+                   unset($_SESSION['canteen']);
+                   unset($_SESSION['resta']);
+                   unset($_SESSION['strID']);
                   header('Location: ' . $_SERVER['HTTP_REFERER']);
                   exit;
                  } else {
@@ -134,7 +139,7 @@
                }
                   }
              } ?> 
-            <button type="submit" name="submit" class=" btn btn-amber">
+            <button type="submit" name="submit" class=" btn btn-amber" onclick="window.open ('wait.php?name=<?php echo $_SESSION['u_name'];?>', 'links', 'toolbar=0,location=1,directories=0,status=0,menubar=0,scrollbars=auto,resizable=yes,dependent=yes,width=400,height=400');">
             สั่งเลย!
             </button>
             </form>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Register Shop</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -19,8 +19,8 @@
         <div class="row d-flex align-items-center">
             <div class="col-12 ">
                 <div class="card shadow p-3 mb-5 bg-white rounded">
-                    <h1>Register</h1>
-                    <form id="commentForm" action="regis_script.php" method="post">
+                    <h1>Register Shop</h1>
+                    <form id="commentForm" action="saleadd_script.php" method="post">
                         <!-- Material input -->
                         <div class="row">
 
@@ -42,76 +42,34 @@
                             </div>
                         </div>
 
-                        <!--Student ID & Faculty-->
+                        <!--People Card ID & Shop Name-->
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="md-form">
-                                    <i class="fas fa-user-graduate prefix"></i>
-                                    <input type="text" id="idStd" class="form-control" name="id_std">
-                                    <label for="idStd" >Student ID</label>
+                                    <i class="fas fa-user-tag prefix"></i>
+                                    <input type="text" id="idStd" class="form-control" name="user">
+                                    <label for="idStd" >Username</label>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="md-form">
-                                    <i class="fas fa-school prefix"></i>
-                                    <input type="text" id="idFaculty" class="form-control" name="faculty">
-                                    <label for="idFaculty">Faculty</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <!--Email-->
-                                <div class="md-form">
-                                    <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="inputValidationEx" class="form-control validate" name="email">
-                                    <label for="inputValidationEx" data-error="wrong" data-success="right">Type your
-                                        email</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                    <div class="md-form">
-                                            <select class="browser-default custom-select " name="gender">
-                                                    <option selected>Gender</option>
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                  </select>
-                                            </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <!--Password-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fas fa-key prefix"></i>
-                                    <input type="password" id="idPassword" class="form-control" name="pass">
-                                    <label for="idPassword">Password</label>
-                                </div>
-                            </div>
-
-                            <!--Re-Password-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fas fa-key prefix"></i>
-                                    <input type="password" id="idRepassword" class="form-control" name="re_pass">
-                                    <label for="idRepassword">Re-Password</label>
+                                    <i class="fas fa-store prefix"></i>
+                                    <input type="text" id="idFaculty" class="form-control" name="shop_name">
+                                    <label for="idFaculty">Shop Name</label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="md-form">
-                                <i class="fas fa-phone prefix"></i>
-                                <input type="number" id="idPhone" class="form-control" name="tel">
-                                <label for="idPhone">Phone Number</label>
+                                <i class="fas fa-key prefix"></i>
+                                <input type="text" id="idPhone" class="form-control" name="password">
+                                <label for="idPhone">Password</label>
                         </div>
 
 
                         <input id="commentBtn" type="submit" class="btn btn-outline-elegant btn-rounded waves-effect"
-                            value="Register">
+                            value="Add">
                     </form>
                 </div>
             </div>
@@ -120,7 +78,7 @@
 
 
             <script>
-
+                
             </script>
             <!-- JQuery -->
             <script type="text/javascript"
@@ -136,4 +94,4 @@
                 src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 </body>
 
-</html>
+</html>
