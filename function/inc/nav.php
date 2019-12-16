@@ -15,10 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active mr-3">
-            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index.php">Category</a>
+<a class="nav-link" href="index.php">Home <?php if($actual_link == "https://www.spex.mobi/project/index.php") { ?><span class="sr-only">(current)</span><?php } else { echo ""; } ?></a>
         </li>
         </ul>
     </div>
@@ -174,24 +171,4 @@
         xhr.open('GET', 'function/inc/clear_cart.php', true);
         xhr.send();
     }
-
-    // function checkOut() {
-    //   const params = {
-    //   name: document.querySelector("#cust_name").value,
-    //   food: document.querySelector("#f_name").value,
-    //   res: document.querySelector("#res").value,
-    //   qty: document.querySelector("#qty").value
-    //   }
-
-    //   $.ajax({
-    //   type: "POST",
-    //   contentType: "application/json; charset=utf-8",
-    //   url: "function/checkout.php",
-    //   data: { params },
-    //   success: function (result) {
-    //        alert('success');
-    //   }
-    //   });
-
-    // }
 </script>

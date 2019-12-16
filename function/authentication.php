@@ -30,7 +30,7 @@
         }
     }
     
-    if ($_GET['signout'] == '1') {
+    if ($_POST['signout']) {
         unset($_SESSION['loggedin']);
         unset($_SESSION['u_name']);
         unset($_SESSION['id']);

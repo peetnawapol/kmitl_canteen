@@ -68,11 +68,11 @@
 
   <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-2">
 
-    <?php if(!isset($_SESSION['loggedin'])) { ?>
+    <?php if(!isset($_SESSION['loggedin'])) { //เช็คถ้ายังไม่ได้ล็อกอิน ให้ล็อกอินก่อน ?>
 
     PLEASE <span class="orange-text">SIGN IN</span>
 
-    <?php } else { ?>
+    <?php } else { //กรณีที่ล็อกอินแล้ว ?>
 
     WELCOME! <span class="orange-text text-uppercase"><?=$_SESSION['u_name'];?></span>
 
@@ -87,7 +87,7 @@
   <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-6 order-lists sign-in p-4 pl-5 pr-5 mb-3 mt-2">
 
   <?php
-  if(!isset($_SESSION['loggedin'])) { ?>
+  if(!isset($_SESSION['loggedin'])) { //ถ้ายังไม่ได้ล็อกอินให้ล็อกอิน ?>
 
     <form action="" method="post">
 
@@ -111,14 +111,18 @@
 
     </div>
 
-    <div class="row w-100 mt-4">
+    <div class="row mt-4 mb-2">
 
             <div class="col d-flex justify-content-center align-items-center">
-
-            <input type="submit" class="btn btn-amber mr-3" value="SIGN IN">
-
-            or <a href="create.php" class="white-text small-text pl-3"> create an account</a>
-
+            <div class="col-lg-5 col-sm-10 d-flex justify-content-center p-0">
+            <input type="submit" class="btn btn-amber" value="SIGN IN">
+            </div>
+            <div class="col-lg-1 col-sm-10 d-flex justify-content-center pr-2 pl-2">
+            <span>or</span> 
+            </div>
+            <div class="col-lg-5 col-sm-10 d-flex justify-content-center pl-2 text-center">
+            <a href="create.php" class="white-text small-tex"> create an account</a>
+            </div>
             </div>
 
             </div>
@@ -178,11 +182,9 @@
     <div class="row w-100 mt-4">
 
             <div class="col d-flex justify-content-center align-items-center">
-
-            <input type="submit" class="btn btn-amber mr-3 disabled" value="UPDATE">
-
-            or <a href="?signout=1" class="white-text small-text pl-3"> SIGN OUT</a>
-
+            <form action="" method="post">
+            <input type="submit" class="btn btn-amber mr-3" name="signout" value="SIGN OUT">
+            </form>
             </div>
 
             </div>
