@@ -1,4 +1,4 @@
-# kmitl_canteen
+# KMITL CANTEEN SYSTEM
 This web application was created for KMITL canteen management system.
 
 
