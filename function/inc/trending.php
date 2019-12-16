@@ -1,10 +1,12 @@
 <?php require_once("function/connect.php"); 
-$query = "SELECT * FROM food as f 
-inner join restaurant as r 
-on r.res_id = f.res_ref
-WHERE f.cat_ref=1 or f.cat_ref=2 or f.cat_ref=3 
-ORDER by f.fid DESC LIMIT 4";
-$result = $conn->query($query);
+
+if(!isset($_GET['search'])) {
+  $query = "SELECT * FROM food as f 
+  inner join restaurant as r 
+  on r.res_id = f.res_ref
+  WHERE f.cat_ref=1 or f.cat_ref=2 or f.cat_ref=3 
+  ORDER by f.fid DESC LIMIT 4";
+  $result = $conn->query($query);
 
 ?>
 <div class="row p-3 d-flex h-100 pb-4 pt-0">
@@ -33,7 +35,7 @@ $result = $conn->query($query);
   $result2 = $conn->query($food1);
 ?>
 <div class="row p-3 d-flex h-100 pb-4 pt-0">
-      <!-- Row for Recommended Meal -->
+      <!-- Row for Rice Meal -->
       <h2 class="cust-head pl-2 pr-3">
         <i class="fas fa-utensils mr-2" ></i>Rice Meal
       </h2>
@@ -58,7 +60,7 @@ $result = $conn->query($query);
   $result2 = $conn->query($food1);
 ?>
 <div class="row p-3 d-flex h-100 pb-4 pt-0">
-      <!-- Row for Recommended Meal -->
+      <!-- Row for Noodles -->
       <h2 class="cust-head pl-2 pr-3">
         <i class="fas fa-grip-lines-vertical mr-2" ></i>Noodles
       </h2>
@@ -83,7 +85,7 @@ $result = $conn->query($query);
   $res3 = $conn->query($food2);
 ?>
 <div class="row p-3 d-flex h-100 pb-4 pt-0">
-      <!-- Row for Recommended Meal -->
+      <!-- Row for Appetizer -->
       <h2 class="cust-head pl-2 pr-3">
         <i class="fas fa-cookie-bite mr-2" ></i>APPETIZER
       </h2>
@@ -108,7 +110,7 @@ $result = $conn->query($query);
   $res4 = $conn->query($food3);
 ?>
 <div class="row p-3 d-flex h-100 pb-4 pt-0">
-      <!-- Row for Recommended Meal -->
+      <!-- Row for Beverage -->
       <h2 class="cust-head pl-2 pr-3">
         <i class="fas fa-glass-cheers mr-2" ></i>BEVERAGE
       </h2>
@@ -122,3 +124,40 @@ $result = $conn->query($query);
       </div>
       <?php } ?>
 </div>
+<!-- Show search result -->
+<?php } else { 
+  $string = $_POST['search_text'];
+  $sesql = "SELECT * FROM food as f
+   inner join restaurant as r 
+   on r.res_id = f.res_ref
+   inner join category as c 
+   on c.cat_id = f.cat_ref
+   where f.food_name
+   like '%".mysqli_real_escape_string($conn, $string)."%'";
+  $seaval = $conn->query($sesql);
+
+  if(mysqli_num_rows($seaval)) { //กรณีที่หาพบ
+    echo "<script>window.location.href='#search_result'</script>";
+  ?>
+<div class="row p-3 d-flex h-100 pb-4 pt-0">
+      <h2 class="cust-head pl-2 pr-3">
+        <i class="fas fa-search mr-2" ></i>Search Results for <span class="white-text"><?=$string;?></span>
+      </h2>
+      <span class="w-100 mb-3" ></span>
+      <?php while($value = $seaval->fetch_array(MYSQLI_ASSOC)) { ?>
+      <div class="col-lg-3 col-md-6 col-sm-6 pl-2 pr-2 mb-4" id="search_result">
+        <a href="page.php?rel=canteen&menu=<?=$value['fid']?>" class="trending">
+          <img src="<?=$value['food_img']?>" alt="<?=$value['food_name']?>" class="img-fluid rounded hoverable">
+          <h3><?=$value['food_name']?> - <?=$value['res_name']?></h3>
+        </a>
+      </div>
+      <?php } ?>
+</div>
+<?php } else { //กรณีที่หาไม่พบ ?>
+  <div class="row p-3 d-flex justify-content-center align-items-center h-100 pb-4 pt-0">
+  <h2 class="cust-head pl-2 pr-3">
+        <i class="fas fa-search mr-2" ></i>ไม่พบผลการค้นหาสำหรับ <span class="white-text"><?=$string;?></span>
+      </h2>
+  <span class="clear-fix w-100 mb-3" ></span>
+  </div>
+<?php } }  ?>
