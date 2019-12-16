@@ -2,19 +2,19 @@
 
 require_once("function/connect.php");
 
-$sqlfr = "SELECT * FROM restaurant as r
-  INNER JOIN food as f
-  ON f.res_ref = r.res_id
-  INNER JOIN canteen as c
-  ON c.cid = r.can_ref
-  WHERE f.res_ref = $_GET[id]";
+$sqlfr = "SELECT * FROM food as f
+    INNER JOIN restaurant as r
+    ON r.res_id = f.res_ref
+    INNER JOIN canteen as c
+    ON c.cid = r.can_ref
+    WHERE f.res_ref = $_GET[id] ORDER BY f.fid DESC";
 
 $que2 = $conn->query($sqlfr);
 
-$rowt = $que2->fetch_array(MYSQLI_ASSOC)
+$rowt = $que2->fetch_array(MYSQLI_ASSOC);
 ?>
 <div class="row mt-5 mb-5 p-4">
-<?php if(!empty($rowt['food_name'])) { ?>
+<?php if(!mysqli_num_rows($rowt)) { ?>
 <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text"><?=$rowt['res_name']?></span> @ <?=$rowt['cname']?></h1>
 <?php } else { ?>
 <h1 class="h1-responsive text-white text-center d-flex justify-content-center w-100 display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text">ไม่พบรายการอาหาร :(</span></h1>

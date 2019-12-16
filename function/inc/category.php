@@ -7,7 +7,7 @@
       ON f.cat_ref = c.cat_id
       INNER JOIN restaurant as r
       ON r.res_id = f.res_ref
-      WHERE c.cat_id = $_GET[id] ORDER BY f.fid DESC";
+      WHERE f.cat_ref = $_GET[id] ORDER BY f.fid DESC";
   
     $res4 = $conn->query($food3);
 

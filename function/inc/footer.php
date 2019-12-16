@@ -2,7 +2,7 @@
 
     $query = "SELECT * 
 
-    from canteen ORDER BY cid DESC";
+    from canteen ORDER BY cid ASC";
 
     $result = $conn->query($query);
 
@@ -10,7 +10,7 @@
 
     $cat_query = "SELECT * 
 
-    from category ORDER BY cat_id DESC";
+    from category ORDER BY cat_id ASC";
 
     $cat_res = $conn->query($cat_query);
 
