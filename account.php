@@ -72,7 +72,7 @@
 
     PLEASE <span class="orange-text">SIGN IN</span>
 
-    <?php } else { //กรณีที่ล็อกอินแล้ว ?>
+    <?php } else { //กรณีที่ล็อกอินแล้ว ให้แสดงคำว่า Welcome ?>
 
     WELCOME! <span class="orange-text text-uppercase"><?=$_SESSION['u_name'];?></span>
 
@@ -129,7 +129,7 @@
 
     </form>
 
-  <?php } else { 
+  <?php } else {  //เชื่อมต่อฐานข้อมูล กรณีที่มีข้อมูล user ในระบบแล้ว
 
       $stmt = $conn->prepare('SELECT faculty FROM member WHERE std_id = ?');
 

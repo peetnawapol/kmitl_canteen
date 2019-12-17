@@ -1,20 +1,25 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php require_once("function/connect.php"); 
+      session_start();
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    $name = $_GET['name'];
+    $sqli = "SELECT * FROM order_lists WHERE order_lists.customer_name='$name' ORDER BY order_lists.time DESC";
+    $resord = $conn->query($sqli); 
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <div id="order">
-  <table class="table">
+?>
+<!-- ส่วนแสดงรายการอาหาร -->
+
+<div class="row mt-5 mb-5 p-4 d-flex justify-content-center">
+
+<?php if(isset($_GET['name'])) { ?>
+
+<h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5 text-uppercase"><span class="orange-text"><?=$_GET['name'];?></span> ORDER</h1>
+
+<span class="w-100"></span>
+
+<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-3 pr-3">
+  <table class="table" id="order">
   <thead>
-    <tr>
+    <tr class="orange-text">
       <th scope="col">#</th>
       <th scope="col">Menu</th>
       <th scope="col">Amount</th>
@@ -23,37 +28,50 @@
   </thead>
   <tbody>
     <?php
-        require_once("function/connect.php"); 
-    session_start();
-    $name = $_GET['name'];
-    $sql = "SELECT * FROM order_lists WHERE customer_name='$name'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0)
-    while ($row = $result->fetch_assoc()) {
-    $order = $row["time"];
+    if ($resord->num_rows > 0) {
+    while ($row = $resord->fetch_assoc()) {
+    $dateTime = date_create($row['time']);
+    $order = date_format($dateTime, 'd-m-Y H:i:s');
+    if ($row['status'] == "NOT_PROCESS") {
+      $row['status'] = "WAITING";
+    }
+    if ($row['status'] == "PROCESS") {
+      $row['status'] = "PROCESSING";
+    }
+    if ($row['status'] == "FINISH") {
+      $row['status'] = "FINISHED";
+    }
     ?>
     <tr>
       <th scope="row"><?php echo $order;?></th>
       <td><?php echo $row['food_name'];?></td>
       <td><?php echo $row['quantity'];?></td>
-      <td><?php echo $row['status'];?></td>
+      <td>
+        <?php if($row['status'] == "WAITING") { ?>
+        <small><p class="text-white text-center bg-warning rounded pr-2 pl-2 pt-1 pb-1 ml-3"><?php echo $row['status'];?></p></small>
+        <?php } ?>
+        <?php if($row['status'] == "PROCESSING") { ?>
+        <small><p class="text-white text-center bg-info rounded pr-2 pl-2 pt-1 pb-1 ml-3"><?php echo $row['status'];?></p></small>
+        <?php } ?>
+        <?php if($row['status'] == "FINISHED") { ?>
+        <small><p class="text-white text-center bg-success rounded pr-2 pl-2 pt-1 pb-1 ml-3"><?php echo $row['status'];?></p></small>
+        <?php } ?>
+      </td>
     </tr>
-   <br>
-    <?php }?>
-    </tr>
+    <?php } } else { die('error'); }?>
   </tbody>
 </table>
+</div> 
+<?php } else { ?>
+<h1 class="h1-responsive text-white text-center d-flex justify-content-center w-100 display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text">กรุณาสั่งอาหาร</span></h1>
+<button class="btn btn-amber mx-auto mt-3 mb-2 " onclick="window.location.href='index.php'">BACK TO HOME</button>
+<?php } ?>
 </div>
 <script>
-        function updateDiv() {
-            $("#order").load(window.location.href + " #order");
-        }
-        window.setInterval(updateDiv, 10);
-    </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-</html>
+function timer() {
+    //Here is update specific part of our page
+    document.getElementById("order").innerHTML = d.toLocaleTimeString();
+}
+
+window.setInterval(timer, 7000);
+</script>

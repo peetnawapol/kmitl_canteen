@@ -36,6 +36,12 @@
 
     <?php } ?>
 
+    <?php if ($_GET['rel'] == "wait") { ?>
+      
+      <title>Your Order</title>
+
+    <?php } ?>
+
 
 
     <!-- Font Awesome -->
@@ -82,6 +88,8 @@
 
   <!-- if page == canteen -->
 
+  <?php if (isset($_GET['rel'])) { ?>
+
   <?php if ($_GET['rel'] == "canteen") { //ถ้า parameter คือ canteen
      include("function/inc/canteen.php"); } ?>
 
@@ -93,6 +101,14 @@
 
   <?php if ($_GET['rel'] == "restaurant") { //ถ้า parameter คือ restaurant
      include("function/inc/restaurant.php"); } ?>
+
+  <?php if ($_GET['rel'] == "wait") {
+      include("wait.php");
+  }?> 
+  
+  <?php } else {
+      echo "<script>window.location.href='index.php'</script>";
+  } ?>
 
   </div>
 

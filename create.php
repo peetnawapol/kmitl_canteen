@@ -1,4 +1,4 @@
-<?php require_once("function/connect.php"); 
+<?php require_once("function/connect.php"); //สร้างผู้ใช้งานใหม่
     if(isset($_POST['submit'])) {
         if (!isset($_POST['student_id'], $_POST['password'], $_POST['nickname'], $_POST['faculty'])) {
             die ('Please complete the registration form!');
@@ -70,12 +70,13 @@
   <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-2">
     <?php if(!isset($_SESSION['loggedin'])) { ?>
     CREATE AN <span class="orange-text">ACCOUNT</span>
-    <?php } else { ?>
+    <?php } else { //ถ้าล็อกอินแล้วให้ redirect ไปหน้า account ?>
         <script>window.location.href='account.php'</script>
     <?php } ?>
   </h1>
     <span class="clear-fix w-100"></span>
   </div>
+  <!-- Register Form -->
   <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-6 order-lists sign-in p-4 pl-5 pr-5 mb-3 mt-2">
   <?php if(!isset($_SESSION['loggedin'])) { ?>
     <form action="" method="post">

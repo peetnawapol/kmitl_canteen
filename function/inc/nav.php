@@ -136,7 +136,7 @@
                }
                   }
              } ?> 
-            <button type="submit" name="submit" class=" btn btn-amber" onclick="window.open ('wait.php?name=<?php echo $_SESSION['u_name'];?>', 'links', 'toolbar=0,location=1,directories=0,status=0,menubar=0,scrollbars=auto,resizable=yes,dependent=yes,width=400,height=400');">
+            <button type="submit" name="submit" class="btn btn-amber" onclick="NewTab()">
             สั่งเลย!
             </button>
             </form>
@@ -164,6 +164,7 @@
 </nav>
 <script type="text/javascript">
     function resetCart() {
+      //Reset cart function
         let xhr = new XMLHttpRequest();
         xhr.onload = function() {
             document.location = window.location.reload();
@@ -171,4 +172,10 @@
         xhr.open('GET', 'function/inc/clear_cart.php', true);
         xhr.send();
     }
+
+    function NewTab() { 
+      //New tab function
+            window.open( 
+              "page.php?rel=wait&name=<?=$_SESSION['u_name']?>", "_blank"); 
+    } 
 </script>
