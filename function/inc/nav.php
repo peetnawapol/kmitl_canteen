@@ -156,14 +156,14 @@
         <li class="nav-item">
         <a class="nav-link" onclick="NewTab();"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-th-list"></i>
+          <i class="fas fa-th-list mr-1"></i><span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-xs-inline mt-2">Orders</span>
         </a>
         </li>
         <?php } ?>
         <li class="nav-item">
         <a class="nav-link" href="account.php"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user mr-1"></i><span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-xs-inline mt-2">Account</span>
         </a>
       </li>
         </ul>
