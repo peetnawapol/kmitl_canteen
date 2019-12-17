@@ -2,10 +2,10 @@
 This web application was created for KMITL canteen management system.
 
 
-To use web application (user-side) please follow from our step.
+**To use web application (user-side) please follow from our step.**
 
 
-**Use Google Chrome to get more performance**
+***Use Google Chrome to get more performance***
 
 
       1.Go to https://www.spex.mobi/project/ to open the first page.
@@ -40,7 +40,7 @@ To use web application (user-side) please follow from our step.
 
 
 
-To use web application from merchant side
+**To use web application from merchant side**
 
       1.Go to https://www.spex.mobi/project/system/dash_board.php
 
