@@ -10,13 +10,13 @@
 
 <div class="row mt-5 mb-5 p-4 d-flex justify-content-center">
 
-<?php if($_GET['name'] == $_SESSION['u_name'] && isset($_SESSION['u_name'])) { ?>
+<?php if($_GET['name'] == $_SESSION['u_name'] && isset($_SESSION['u_name']) && $resord->num_rows > 0) { ?>
 
 <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5 text-uppercase"><span class="orange-text"><?=$_GET['name'];?>'S</span> ORDER</h1>
 
 <span class="w-100"></span>
 
-<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-2 pr-2 mb-2">
+<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-2 pr-2 mb-2 pb-4">
   <table class="table table-responsive-sm mb-5">
   <thead>
     <tr class="orange-text">
@@ -46,7 +46,7 @@
       <th scope="row"><?php echo $order;?></th>
       <td><?php echo $row['food_name'];?></td>
       <td><?php echo $row['quantity'];?></td>
-      <td>
+      <td class="pl-0 ml-0">
         <?php if($row['status'] == "WAITING") { ?>
         <small><p class="text-white text-center bg-warning rounded pr-2 pl-2 pt-1 pb-1 ml-3"><?php echo $row['status'];?></p></small>
         <?php } ?>

@@ -179,11 +179,11 @@
 
     </div>
 
-    <div class="row w-100 mt-4">
+    <div class="row mt-4">
 
             <div class="col d-flex justify-content-center align-items-center">
             <form action="" method="post">
-            <input type="submit" class="btn btn-amber mr-3" name="signout" value="SIGN OUT">
+            <input type="submit" class="btn btn-amber" name="signout" value="SIGN OUT">
             </form>
             </div>
 

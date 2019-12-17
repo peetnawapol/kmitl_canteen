@@ -740,22 +740,22 @@ a.canteen_link:hover {
 
    .table-responsive {
      color: rgba(209,214,222, 1) !important;
-     border-color: rgb(55,65,79) !important;
+     border-color: rgb(44,52,64) !important;
    }
 
   .table-responsive th, .table-responsive td {
 
-    border-color: rgb(55,65,79) !important;
+    border-color: rgb(44,52,64) !important;
   }
 
   .table {
     color: rgba(209,214,222, 1) !important;
-    border-color: rgb(55,65,79) !important;
+    border-color: rgb(44,52,64) !important;
   }
 
  .table th, .table td {
    
-   border-color: rgb(55,65,79) !important;
+   border-color: rgb(44,52,64) !important;
  }
 
  input:-webkit-autofill,
