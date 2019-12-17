@@ -152,10 +152,18 @@
           ?>
         </div>
         </li>
+        <?php if(isset($_SESSION['u_name'])) { ?>
+        <li class="nav-item">
+        <a class="nav-link" onclick="NewTab();"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-th-list"></i>
+        </a>
+        </li>
+        <?php } ?>
         <li class="nav-item">
         <a class="nav-link" href="account.php"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user mr-1"></i>Profile
+          <i class="fas fa-user"></i>
         </a>
       </li>
         </ul>

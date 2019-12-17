@@ -114,13 +114,13 @@
     <div class="row mt-4 mb-2">
 
             <div class="col d-flex justify-content-center align-items-center">
-            <div class="col-lg-5 col-sm-10 d-flex justify-content-center p-0">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-5 d-flex justify-content-center p-0 mr-1">
             <input type="submit" class="btn btn-amber" value="SIGN IN">
             </div>
-            <div class="col-lg-1 col-sm-10 d-flex justify-content-center pr-2 pl-2">
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 d-flex justify-content-center pr-2 pl-2">
             <span>or</span> 
             </div>
-            <div class="col-lg-5 col-sm-10 d-flex justify-content-center pl-2 text-center">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-5 d-flex justify-content-center pl-2 text-center">
             <a href="create.php" class="white-text small-tex"> create an account</a>
             </div>
             </div>

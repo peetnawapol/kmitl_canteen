@@ -10,7 +10,7 @@
 
 <div class="row mt-5 mb-5 p-4 d-flex justify-content-center">
 
-<?php if(isset($_GET['name'])) { ?>
+<?php if($_GET['name'] == $_SESSION['u_name'] && isset($_SESSION['u_name'])) { ?>
 
 <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5 text-uppercase"><span class="orange-text"><?=$_GET['name'];?>'S</span> ORDER</h1>
 

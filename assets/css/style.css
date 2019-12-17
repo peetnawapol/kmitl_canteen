@@ -757,6 +757,15 @@ a.canteen_link:hover {
    
    border-color: rgb(55,65,79) !important;
  }
+
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover,
+ input:-webkit-autofill:focus,
+ input:-webkit-autofill:active,
+ input:-internal-autofill-selected {
+     background-color: rgba(34, 40, 49, .9) !important;
+     -webkit-text-fill-color: rgba(209,214,222, 1) !important;
+ }
   
 
   /** Small devices (landscape phones, 576px and up) **/
@@ -840,3 +849,17 @@ a.canteen_link:hover {
     }
 
   }
+
+@keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
+}
+
+@-webkit-keyframes autofill {
+    100% {
+        background: transparent;
+        color: inherit;
+    }
+}
