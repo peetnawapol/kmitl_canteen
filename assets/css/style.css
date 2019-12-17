@@ -738,14 +738,25 @@ a.canteen_link:hover {
 
    }
 
-   .table {
+   .table-responsive {
      color: rgba(209,214,222, 1) !important;
      border-color: rgb(55,65,79) !important;
    }
 
-  .table th, .table td {
+  .table-responsive th, .table-responsive td {
+
     border-color: rgb(55,65,79) !important;
   }
+
+  .table {
+    color: rgba(209,214,222, 1) !important;
+    border-color: rgb(55,65,79) !important;
+  }
+
+ .table th, .table td {
+   
+   border-color: rgb(55,65,79) !important;
+ }
   
 
   /** Small devices (landscape phones, 576px and up) **/

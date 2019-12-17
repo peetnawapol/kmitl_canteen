@@ -12,12 +12,12 @@
 
 <?php if(isset($_GET['name'])) { ?>
 
-<h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5 text-uppercase"><span class="orange-text"><?=$_GET['name'];?></span> ORDER</h1>
+<h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5 text-uppercase"><span class="orange-text"><?=$_GET['name'];?>'S</span> ORDER</h1>
 
 <span class="w-100"></span>
 
-<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-2 pr-2">
-  <table class="table">
+<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-2 pr-2 mb-2">
+  <table class="table table-responsive-sm mb-5">
   <thead>
     <tr class="orange-text">
       <th scope="col">#</th>
@@ -61,6 +61,7 @@
     <?php } } else { die('error'); }?>
   </tbody>
 </table>
+<button class="btn btn-amber mx-auto mt-3 mb-2 d-flex justify-content-center" onclick="window.location.href='index.php'">GET MORE FOOD!</button>
 </div> 
 <?php } else { ?>
 <h1 class="h1-responsive text-white text-center d-flex justify-content-center w-100 display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text">กรุณาสั่งอาหาร</span></h1>
