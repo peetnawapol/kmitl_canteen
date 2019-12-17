@@ -740,8 +740,12 @@ a.canteen_link:hover {
 
    .table {
      color: rgba(209,214,222, 1) !important;
-     border-color: rgb(209,214,222) !important;
+     border-color: rgb(55,65,79) !important;
    }
+
+  .table th, .table td {
+    border-color: rgb(55,65,79) !important;
+  }
   
 
   /** Small devices (landscape phones, 576px and up) **/

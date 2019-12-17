@@ -16,8 +16,8 @@
 
 <span class="w-100"></span>
 
-<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-3 pr-3">
-  <table class="table" id="order">
+<div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-xs-12 page-wrap mt-0 pl-2 pr-2">
+  <table class="table">
   <thead>
     <tr class="orange-text">
       <th scope="col">#</th>
@@ -26,7 +26,7 @@
       <th scope="col">Status</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="interval">
     <?php
     if ($resord->num_rows > 0) {
     while ($row = $resord->fetch_assoc()) {
@@ -42,7 +42,7 @@
       $row['status'] = "FINISHED";
     }
     ?>
-    <tr>
+    <tr id="order">
       <th scope="row"><?php echo $order;?></th>
       <td><?php echo $row['food_name'];?></td>
       <td><?php echo $row['quantity'];?></td>
@@ -68,10 +68,10 @@
 <?php } ?>
 </div>
 <script>
-function timer() {
-    //Here is update specific part of our page
-    document.getElementById("order").innerHTML = d.toLocaleTimeString();
-}
+//รีโหลดหน้าใหม่
+setInterval("timeRe();",1000); 
 
-window.setInterval(timer, 7000);
+function timeRe(){
+      $('#interval').load(location.href + ' #order');
+}
 </script>
