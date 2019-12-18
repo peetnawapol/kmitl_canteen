@@ -1,9 +1,9 @@
 <div class="container-fluids p-5">
     <div class="row">
-        <div class="col-6 ">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="card shadow p-3 mb-5 bg-white rounded">
                 <h2>Order</h2>
-                <table class="table">
+                <table class="table table-responsive-md">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -37,10 +37,10 @@
                 </table>
             </div>
         </div>
-        <div class="col-6 ">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="card shadow p-3 mb-5 bg-white rounded">
                 <h2>Process</h2>
-                <table class="table">
+                <table class="table table-responsive-md">
                     <thead>
                         <tr>
                             <th scope="col">time</th>
