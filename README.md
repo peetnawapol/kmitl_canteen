@@ -30,13 +30,13 @@ This web application was created for KMITL canteen management system.
       6.And then you have to click on the ส่งเลย button again to send order to merchant.
 
 
-      7.Status window will push up on your screen.
+      7.The order page will be shown.
 
 
-      8.Refresh it to see your order status.
-
-
-      9.Let's join your meal!
+      8.Wait until FINISHED status appear
+      
+      
+      9.Let's go! go to get your food.
 
 
 
