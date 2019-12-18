@@ -18,7 +18,7 @@
                         include 'connect.php';
                         session_start();
                         $store = $_SESSION['store'];
-                        $sql = "SELECT * FROM order_lists WHERE res_name='$store' AND status='NOT_PROCESS' ORDER BY time ASC;";
+                        $sql = "SELECT * FROM order_lists WHERE res_name='$store' AND status='NOT_PROCESS' ORDER BY time DESC;";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0)
                             while ($row = $result->fetch_assoc()) {
@@ -29,8 +29,8 @@
                                 <td><?php echo $row["customer_name"]; ?></td>
                                 <td><?php echo $row["food_name"]; ?></td>
                                 <td><?php echo $row["quantity"]; ?></td>
-                                <td><a class="btn btn-primary" role="button"  href="submit.php?id=<?php echo $order;?>">SUBMIT</a>
-                                <a class="btn btn-danger" role="button" href="cancel.php?id=<?php echo $order;?>">CANCEL</a></td>
+                                <td><a class="btn btn-primary" role="button" href="submit.php?id=<?php echo $order;?>">SUBMIT</a>
+                                <a class="btn btn-danger mt-2" role="button" href="cancel.php?id=<?php echo $order;?>" >CANCEL</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -53,7 +53,7 @@
                     <tbody>
                     <?php
                         include 'connect.php';
-                        $sql = "SELECT * FROM order_lists WHERE res_name='$store' AND status='PROCESS' ORDER BY time ASC;";
+                        $sql = "SELECT * FROM order_lists WHERE res_name='$store' AND status='PROCESS' ORDER BY time DESC;";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0)
                             while ($row = $result->fetch_assoc()) {

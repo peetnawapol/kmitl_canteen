@@ -2,6 +2,7 @@
     if ($_SESSION['id'] == ''){
         echo "<script> window.location.href='login.html';</script>";
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

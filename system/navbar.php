@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">ออกจากระบบ</a>
+                        <a class="nav-link" href="logout.php?rel=signout">ออกจากระบบ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><?php echo $_SESSION['store']; ?></a>
