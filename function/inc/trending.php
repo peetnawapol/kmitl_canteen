@@ -5,7 +5,7 @@ if(!isset($_GET['search'])) {
   inner join restaurant as r 
   on r.res_id = f.res_ref
   WHERE f.cat_ref=1 or f.cat_ref=2 or f.cat_ref=3 
-  ORDER by f.fid DESC LIMIT 4";
+  ORDER by f.fid DESC LIMIT 8";
   $result = $conn->query($query);
 
 ?>
