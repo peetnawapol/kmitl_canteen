@@ -29,8 +29,8 @@
                                 <td><?php echo $row["customer_name"]; ?></td>
                                 <td><?php echo $row["food_name"]; ?></td>
                                 <td><?php echo $row["quantity"]; ?></td>
-                                <td><a class="btn btn-primary" role="button" href="submit.php?id=<?php echo $order;?>">SUBMIT</a>
-                                <a class="btn btn-danger mt-2" role="button" href="cancel.php?id=<?php echo $order;?>" >CANCEL</a></td>
+                                <td><a class="btn btn-primary mb-2 ml-2" role="button" href="submit.php?id=<?php echo $order;?>">SUBMIT</a>
+                                <a class="btn btn-danger mb-2 ml-2" role="button" href="cancel.php?id=<?php echo $order;?>" >CANCEL</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
