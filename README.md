@@ -47,7 +47,7 @@ This web application was created for KMITL canteen management system.
 
       2.Log in with this account
 
-        user: Brown_Beary
+        user: brown_beary
 
         pass: 123456
 
