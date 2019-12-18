@@ -11,11 +11,19 @@
   
     $res4 = $conn->query($food3);
 
-    $row = $res4->fetch_array(MYSQLI_ASSOC)
+    $sqCan = "SELECT * FROM category as c
+      INNER JOIN food as f
+      ON f.cat_ref = c.cat_id
+      INNER JOIN restaurant as r
+      ON r.res_id = f.res_ref
+      WHERE f.cat_ref = $_GET[id] ORDER BY f.fid DESC";
+  
+    $res5 = $conn->query($sqCan);
+    $can = $res5->fetch_array(MYSQLI_ASSOC)
     ?>
 <div class="row mt-5 mb-5 p-4">
 
-    <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text"><?=$row['cat_name']?></span> CATEGORY</h1>
+    <h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text"><?=$can['cat_name']?></span> CATEGORY</h1>
 
     <span class="w-100"></span>
 
