@@ -4,18 +4,23 @@ require_once("function/connect.php");
 
 $food3 = "SELECT * FROM restaurant as r
   INNER JOIN canteen as c
-  ON c.cid = r.can_ref
+  ON c.cid = $_GET[can_id]
   WHERE r.can_ref = $_GET[can_id]
   ";
-
 $res4 = $conn->query($food3);
 
-$row = $res4->fetch_array(MYSQLI_ASSOC);
+$sqlTi = "SELECT * FROM restaurant as r
+  INNER JOIN canteen as c
+  ON c.cid = $_GET[can_id]
+  WHERE r.can_ref = $_GET[can_id]";
+$resTi = $conn->query($sqlTi);
+
+$rowTi = $resTi->fetch_array(MYSQLI_ASSOC)
 ?>
 <div class="row mt-5 mb-5 p-4">
 
-<?php if(!empty($row['res_name'])) { ?>
-<h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text"><?=$row['cname']?></span> @ KMITL</h1>
+<?php if($res4->num_rows > 0) { ?>
+<h1 class="h1-responsive text-white text-center display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text"><?=$rowTi['cname']?></span> @ KMITL</h1>
 <?php } else { ?>
 <h1 class="h1-responsive text-white text-center d-flex justify-content-center w-100 display-4 pl-2 font-weight-light mt-2 mb-5"><span class="orange-text">ไม่พบร้านอาหาร :(</span></h1>
 <button class="btn btn-amber mx-auto mt-3 mb-2 " onclick="window.location.href='index.php'">BACK TO HOME</button>
