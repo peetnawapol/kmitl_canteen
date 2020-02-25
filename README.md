@@ -1,22 +1,65 @@
-# kmitl_canteen
+# KMITL CANTEEN SYSTEM
+This web application was created for KMITL canteen management system.
 
-> For anyone uses
 
-## Build Setup
+**To use web application (user-side) please follow from our step.**
 
-``` bash
-# install dependencies
-$ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+***Use Google Chrome to get more performance***
 
-# build for production and launch server
-$ yarn build
-$ yarn start
 
-# generate static project
-$ yarn generate
-```
+      1.Go to https://www.spex.mobi/project/ to open the first page.
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+      2.To order any food you can click on "add to cart" button(เพิ่มในรายการ).
+
+
+      3.After you clicked that you will see cart notification on the top right of the screen 
+
+        it's will show how many of your ordered.
+
+
+      4.You can click on ส่งเลย button to send order but you have to login first!
+
+
+      5.You can create your own account to order something.
+
+        or use our user: 62070102 pass: 123456
+
+
+      6.And then you have to click on the ส่งเลย button again to send order to merchant.
+
+
+      7.The order page will be shown.
+
+
+      8.Wait until FINISHED status appear
+      
+      
+      9.Let's go! go to get your food.
+
+
+
+**To use web application from merchant side**
+
+      1.Go to https://www.spex.mobi/project/system/dash_board.php
+
+
+      2.Log in with this account
+
+        user: brown_beary
+
+        pass: 123456
+
+        (For Brown Beary restaurant only!!)
+
+
+      3.See your order lists and manage it by click on submit button to confirm order
+
+        or cancel button to calcel the order
+
+
+      4.Change order status on the right panel to make customers know what you've done.
+
+
+      5.To create new merchant account you have to contact webmaster.
